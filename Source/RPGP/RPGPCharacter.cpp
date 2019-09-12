@@ -132,3 +132,20 @@ void ARPGPCharacter::MoveRight(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
+
+FVector ARPGPCharacter::GetInputRotation()
+{
+	//FVector movementInputDirection = GetMovementDirection();
+
+	FRotator playerRotZeroPitch = GetActorRotation();
+	playerRotZeroPitch.Pitch = 0;
+	FVector playerRight = FRotationMatrix(playerRotZeroPitch).GetUnitAxis(EAxis::Y);
+	FVector playerForward = FRotationMatrix(playerRotZeroPitch).GetUnitAxis(EAxis::X);
+
+	FVector dodgeDir = playerForward + playerRight;
+	// Normalize dodgeDir 
+	dodgeDir.Normalize();
+	// Calculate dodge impulse
+	FVector dodgeImpulse = 500.0f * dodgeDir;
+	return dodgeDir;
+}

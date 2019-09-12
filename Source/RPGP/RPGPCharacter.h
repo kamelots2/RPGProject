@@ -29,6 +29,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	FVector m_Rotation;
+
+	UFUNCTION(BlueprintCallable, Category = "Rotation")
+	FVector GetInputRotation();
+	
+
 protected:
 
 	/** Resets HMD orientation in VR. */

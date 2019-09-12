@@ -5,7 +5,7 @@
 	"Description": "",
 	"Modules": [
 		{
-			"Name": "RPGP",
+			"Name": "RPGPJ",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
